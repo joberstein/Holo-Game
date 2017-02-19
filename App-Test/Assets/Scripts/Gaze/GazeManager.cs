@@ -90,8 +90,6 @@ namespace Academy.HoloToolkit.Unity
 				RaycastLayerMask
 			);
 
-			Debug.Log (Hit);
-
             // 2.a: Assign hitInfo variable to the HitInfo public property 
             // so other classes can access it.
 			HitInfo = hitInfo;

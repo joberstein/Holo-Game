@@ -4,19 +4,16 @@
 /// The Interactible class flags a Game Object as being "Interactible".
 /// Determines what happens when an Interactible is being gazed at.
 /// </summary>
-public class Interactible : MonoBehaviour
+public abstract class Interactible : MonoBehaviour
 {
     [Tooltip("Audio clip to play when interacting with this hologram.")]
     public AudioClip TargetFeedbackSound;
     private AudioSource audioSource;
+    protected Material[] defaultMaterials;
 
-    private Material[] defaultMaterials;
-	private Companion companion;
-
-    void Start()
+    protected virtual void Start()
     {
         defaultMaterials = GetComponent<Renderer>().materials;
-		companion = GetComponent<Companion> ();
 
         // Add a BoxCollider if the interactible does not contain one.
         Collider collider = GetComponentInChildren<Collider>();
@@ -48,27 +45,27 @@ public class Interactible : MonoBehaviour
 
     /* TODO: DEVELOPER CODING EXERCISE 2.d */
 
-    void GazeEntered()
-    {
-        for (int i = 0; i < defaultMaterials.Length; i++)
-        {
+	protected abstract void GazeEntered();
+    //{
+        //for (int i = 0; i < defaultMaterials.Length; i++)
+        //{
             // 2.d: Uncomment the below line to highlight the material when gaze enters.
-            defaultMaterials[i].SetFloat("_Highlight", .5f);
-			defaultMaterials [i].color = Color.yellow;
-			companion.changeCompanionText ();
-        }
-    }
+            // defaultMaterials[i].SetFloat("_Highlight", .5f);
+			// defaultMaterials [i].color = Color.yellow;
+			// companion.changeCompanionText ();
+        //}
+    //}
 
-    void GazeExited()
-    {
-        for (int i = 0; i < defaultMaterials.Length; i++)
-        {
+	protected abstract void GazeExited();
+    //{
+      //  for (int i = 0; i < defaultMaterials.Length; i++)
+        //{
             // 2.d: Uncomment the below line to remove highlight on material when gaze exits.
-            defaultMaterials[i].SetFloat("_Highlight", 0f);
-			defaultMaterials [i].color = Color.white;
-			companion.clearCompanionText ();
-        }
-    }
+          //  defaultMaterials[i].SetFloat("_Highlight", 0f);
+			//defaultMaterials [i].color = Color.white;
+			//companion.clearCompanionText ();
+        //}
+    //}
 
     void OnSelect()
     {
