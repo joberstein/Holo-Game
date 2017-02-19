@@ -2,8 +2,8 @@
 Microsoft HoloLens Game for Capstone IM 4700 at Northeastern University.
 
 ## About the Team
-* Working with Ariana Ross, Jesse Oberstein for Game Development and UI.
-* Working with Tiffany Chao and Dwight Clarke for Animation, 3D modeling and design.
+* Muigai Unaka, Ariana Ross, Jesse Oberstein - working on Game Development and UI.
+* Tiffany Chao and Dwight Clarke - working on Animation, 3D modeling and design.
 
 ## Developer Onboard
 1. Download Unity (v5.5 or greater)
