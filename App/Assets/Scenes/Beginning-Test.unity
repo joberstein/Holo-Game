@@ -108,7 +108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010560871102, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000010560871102, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -133,6 +133,11 @@ Prefab:
     - target: {fileID: 4000010560871102, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013543835744, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
+        type: 2}
+      propertyPath: JoystickSupported
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
@@ -207,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFeedbackSound: {fileID: 0}
-  ctrler: {fileID: 0}
+  ctrler: {fileID: 369700369}
 --- !u!114 &362464761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,8 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4e3978082dcfe449877513cf02b000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
-  view: {fileID: 0}
+  model: {fileID: 1498026877}
+  view: {fileID: 948504617}
 --- !u!1001 &381035129
 Prefab:
   m_ObjectHideFlags: 0
@@ -336,8 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8207cf321f5174f46878093619a0b45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CursorOnHolograms: {fileID: 0}
-  CursorOffHolograms: {fileID: 0}
+  CursorOnHolograms: {fileID: 1681962461}
+  CursorOffHolograms: {fileID: 1168804420}
 --- !u!1 &664604568
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +436,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &723567190 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
+  m_PrefabInternal: {fileID: 1081387619}
+--- !u!114 &723567192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 723567190}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed48ca43c8ffff439a46f05082e0194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFeedbackSound: {fileID: 0}
+  ctrler: {fileID: 369700369}
 --- !u!4 &811936214 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
@@ -530,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96eaaf79cfcaca499a6fd7dcf47480f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
+  model: {fileID: 1498026877}
 --- !u!1 &1081019175
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +608,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 0}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -669,6 +691,14 @@ Prefab:
       propertyPath: m_TagString
       value: troll1
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400002, guid: e58e375f5ed38074480b5df1226c7bc3, type: 3}
+    - target: {fileID: 11100000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114723609164598436, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
@@ -689,11 +719,111 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFeedbackSound: {fileID: 0}
-  ctrler: {fileID: 0}
+  ctrler: {fileID: 369700369}
 --- !u!4 &1151478276 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
   m_PrefabInternal: {fileID: 1676327988}
+--- !u!1 &1168804420 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 150760, guid: c2759f50af95cdc4ea73b5fe85bcd113, type: 2}
+  m_PrefabInternal: {fileID: 1884475794}
+--- !u!1 &1170894689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1170894690}
+  - component: {fileID: 1170894691}
+  m_Layer: 0
+  m_Name: KeywordManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170894690
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170894689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1342554151}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170894691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170894689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2795b3e072e1745a4f8c670d64284f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecognizerStart: 0
+  KeywordsAndResponses:
+  - Keyword: Run
+    KeyCode: 114
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1144219287}
+          m_MethodName: Run
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - Keyword: Attack
+    KeyCode: 97
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1144219287}
+          m_MethodName: Attack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - Keyword: Walk
+    KeyCode: 119
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1144219287}
+          m_MethodName: Walk
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!1 &1250378834
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFeedbackSound: {fileID: 0}
-  ctrler: {fileID: 0}
+  ctrler: {fileID: 369700369}
 --- !u!1001 &1279732028
 Prefab:
   m_ObjectHideFlags: 0
@@ -950,7 +1080,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1342554148}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3547dd740134809449d6af287d45127f, type: 3}
   m_Name: 
@@ -971,6 +1101,7 @@ Transform:
   m_Children:
   - {fileID: 381035130}
   - {fileID: 2095231884}
+  - {fileID: 1170894690}
   m_Father: {fileID: 369700368}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1083,7 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFeedbackSound: {fileID: 0}
-  ctrler: {fileID: 0}
+  ctrler: {fileID: 369700369}
 --- !u!1 &1430969841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1436,10 @@ Prefab:
     - {fileID: 114723609164598436, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1681962461 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 129746, guid: c2759f50af95cdc4ea73b5fe85bcd113, type: 2}
+  m_PrefabInternal: {fileID: 1884475794}
 --- !u!1 &1863586582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFeedbackSound: {fileID: 0}
-  ctrler: {fileID: 0}
+  ctrler: {fileID: 369700369}
 --- !u!1 &2044874742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1616,10 @@ Prefab:
     - target: {fileID: 100260, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
       propertyPath: m_TagString
       value: troll2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
+      propertyPath: m_AnimatePhysics
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114723609164598436, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
@@ -1644,7 +1783,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 0}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1718,7 +1857,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 0}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0

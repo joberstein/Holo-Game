@@ -1,26 +1,12 @@
 fileFormatVersion: 2
-guid: c35ec8112ca03e04e904b72932bc97c5
-timeCreated: 1470171783
-licenseType: Pro
+guid: 3c78ab2febec26e43ba24a14dbe8d39a
+timeCreated: 1487740766
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName:
-    100000: default
-    100002: default_MeshPart0
-    100004: default_MeshPart1
-    100006: //RootNode
-    400000: default
-    400002: default_MeshPart0
-    400004: default_MeshPart1
-    400006: //RootNode
-    2300000: default_MeshPart0
-    2300002: default_MeshPart1
-    3300000: default_MeshPart0
-    3300002: default_MeshPart1
-    4300000: default_MeshPart0
-    4300002: default_MeshPart1
+  fileIDToRecycleName: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -79,9 +65,9 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
