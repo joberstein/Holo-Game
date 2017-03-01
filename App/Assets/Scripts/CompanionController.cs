@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CompanionController : MonoBehaviour {
 	public CompanionModel model;
+	//private static Animations animations;
 	public CompanionView view;
 	private GameObject currComp;
 
@@ -18,7 +19,7 @@ public class CompanionController : MonoBehaviour {
 
 	}
 
-	public void gazeEnterer(GameObject obj, Material[] mat) {
+	public void gazeEntered(GameObject obj, Material[] mat) {
 		model.setCanvas (obj.tag);
 		//changeAnimationState (obj);
 		currComp = obj;
@@ -31,7 +32,7 @@ public class CompanionController : MonoBehaviour {
 		}
 	}
 
-	public void gazeExiter(GameObject obj, Material[] mat) {
+	public void gazeExited(GameObject obj, Material[] mat) {
 		model.setCanvas (obj.tag);
 		currComp = null;
 		for (int i = 0; i < mat.Length; i++) {
@@ -40,6 +41,26 @@ public class CompanionController : MonoBehaviour {
 			mat [i].color = Color.white;
 			view.clearCompanionText ();
 		}
+	}
+
+	public void clicked(GameObject obj, Material[] mat) {
+		model.setCanvas (obj.tag);
+		currComp = null;
+		for (int i = 0; i < mat.Length; i++) {
+			mat [i].color = Color.red;
+		}
+	}
+
+	public void holdStarted(GameObject obj, Material[] mat) {
+		model.setCanvas (obj.tag);
+		currComp = null;
+		for (int i = 0; i < mat.Length; i++) {
+			mat [i].color = Color.green;
+		}
+	}
+
+	public void holdCompleted(GameObject obj, Material[] mat) {
+		gazeExited (obj, mat);
 	}
 		
 	public void changeAnimationState(GameObject obj) {
@@ -55,12 +76,12 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Run() {
-		if (currComp != null) {
+		if (currComp != null && !currComp.tag.Equals("companion1")) {
 			Animation anim = currComp.GetComponentInParent<Animation> ();
-			anim.Play("Run");
-			anim["Run"].wrapMode = WrapMode.Once;
+			anim.Play(Animations.RUN);
+			anim[Animations.RUN].wrapMode = WrapMode.Once;
 			// Idle 1 
-			anim.CrossFadeQueued ("Idle_01");
+			anim.CrossFadeQueued (Animations.IDLE_1);
 			//Transform t = currComp.GetComponentInParent<Transform>();
 			//Debug.Log (t.position);
 			//t.position = new Vector3 (t.position.x, t.position.y, t.position.z+=1.0f);
@@ -69,23 +90,24 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Attack() {
-		if (currComp != null) {
+		if (currComp != null && !currComp.tag.Equals("companion1")) {
 			Animation anim = currComp.GetComponentInParent<Animation> ();
-			anim.Play("Attack");
-			anim["Attack"].wrapMode = WrapMode.Once;
+			Debug.Log (anim);
+			anim.Play(Animations.ATTACK_1);
+			anim[Animations.ATTACK_1].wrapMode = WrapMode.Once;
 			// Idle 1 
-			anim.CrossFadeQueued ("Idle_01");
+			anim.CrossFadeQueued (Animations.IDLE_1);
 			//transform.position.x posx = currComp.GetComponentsInParent<Transform>();
 		}
 	}
 
 	public void Walk() {
-		if (currComp != null) {
+		if (currComp != null && !currComp.tag.Equals("companion1")) {
 			Animation anim = currComp.GetComponentInParent<Animation> ();
-			anim.Play("Walk");
-			anim["Walk"].wrapMode = WrapMode.Once;
+			anim.Play(Animations.WALK);
+			anim[Animations.WALK].wrapMode = WrapMode.Once;
 			// Idle 1 
-			anim.CrossFadeQueued ("Idle_01");
+			anim.CrossFadeQueued (Animations.IDLE_1);
 			//transform.position.x posx = currComp.GetComponentsInParent<Transform>();
 		}
 	}

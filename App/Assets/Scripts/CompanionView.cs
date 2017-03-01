@@ -53,4 +53,7 @@ public class CompanionView : MonoBehaviour {
 		}
 	}
 
+	public Material[] getCompanionMaterials(GameObject obj) {
+		return obj.GetComponent<Renderer>().materials;
+	}
 }
