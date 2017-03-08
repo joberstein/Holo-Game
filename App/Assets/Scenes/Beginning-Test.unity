@@ -815,7 +815,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - Keyword: Walk
-    KeyCode: 119
+    KeyCode: 120
     Response:
       m_PersistentCalls:
         m_Calls:
