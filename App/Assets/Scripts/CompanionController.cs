@@ -9,27 +9,27 @@ public class CompanionController : MonoBehaviour {
 	public CompanionView view;
 	private GameObject currComp;
 	private Animation anim;
-	private bool isWalking;
 
 	void Start() {
 		currComp = null;
-		isWalking = false;
 		anim = null;
 	}
 
 	void Update() {
 		changeAnimationState (currComp);
-		//Run ();
-		if (isWalking) {
-			AnimationState walking = anim [Animations.WALK]; 
-			Debug.Log ("TIME: " + walking.time);
-			Debug.Log ("LENGTH: " + walking.length);
-			if (walking.time < walking.length) {
+
+		// Move 'isWalking' variable to model. 
+		if (view.isWalking) {
+			Debug.Log ("Current Companion: " + currComp.name);
+			AnimationState walking = anim [Animations.WALK];
+			if (walking.time < walking.length && walking.time != 0) {
 				Transform parentTransform = currComp.transform.parent;
-				parentTransform.Translate (Vector3.forward * Time.deltaTime, Space.Self);
+				// Space.World = walk in direction facing
+				// Camera.main.transform = walk towards camera
+				parentTransform.Translate (Vector3.back * Time.deltaTime, Camera.main.transform);
 				currComp.transform.SetParent (parentTransform);
 			} else {
-				isWalking = false;
+				view.isWalking = false;
 			}
 		}
 	}
@@ -39,8 +39,7 @@ public class CompanionController : MonoBehaviour {
 		//changeAnimationState (obj);
 		currComp = obj;
 		anim = currComp.GetComponentInParent<Animation> ();
-		for (int i = 0; i < mat.Length; i++)
-		{
+		for (int i = 0; i < mat.Length; i++) {
 			// 2.d: Uncomment the below line to highlight the material when gaze enters.
 			mat[i].SetFloat("_Highlight", .5f);
 			mat [i].color = Color.yellow;
@@ -50,8 +49,6 @@ public class CompanionController : MonoBehaviour {
 
 	public void gazeExited(GameObject obj, Material[] mat) {
 		model.setCanvas (obj.tag);
-		currComp = null;
-		anim = null;
 		for (int i = 0; i < mat.Length; i++) {
 			// 2.d: Uncomment the below line to highlight the material when gaze enters.
 			mat [i].SetFloat ("_Highlight", 0f);
@@ -119,41 +116,14 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Walk() {
-		if (currComp != null && !currComp.tag.Equals("companion1")) {
+		if (currComp != null && !currComp.tag.Equals ("companion1")) {
 			AnimationState walking = anim [Animations.WALK];
-
-			//transform.position.x posx = currComp.GetComponentsInParent<Transform>();
-			//Transform currParentTransform = currComp.GetComponentInParent<Transform>();
-			//Debug.Log (currParentTransform.name);
-			//Debug.Log (currParentTransform.position);
 			Transform parentTransform = currComp.transform.parent;
-			Debug.Log ("TIME: " + walking.time);
-			Debug.Log ("LENGTH: " + walking.length);
-			isWalking = true;
 
-			anim.Play(Animations.WALK);
+			view.isWalking = true;
+			anim.Play (Animations.WALK);
 			walking.wrapMode = WrapMode.Once;
-
-			// Idle 1 
 			anim.CrossFadeQueued (Animations.IDLE_1);
-
-//			while (walking.time < walking.length) {
-//				Debug.Log ("TIME: " + walking.time);
-//				parentTransform.Translate (Vector3.forward * Time.deltaTime, Space.Self);
-//				Debug.Log (parentTransform.position);
-//				currComp.transform.SetParent (parentTransform);
-//			}
-
-			//currParentTransform.position = currParentTransform.position + (10 * Vector3.forward);
-			//Vector3.MoveTowards (currParentTransform.position, Vector3.zero, 20);
-			//currComp.transform.SetParent(currParentTransform, false);
-			//Debug.Log (currParentTransform.position);
 		}
 	}
-
-	// Attack
-	// Walk
-	// Die
-	// Idle 1
-
 }
