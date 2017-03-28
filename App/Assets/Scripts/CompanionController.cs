@@ -9,6 +9,7 @@ public class CompanionController : MonoBehaviour {
 	public CompanionView view;
 	private GameObject currComp;
 	private Animation anim;
+    private CompanionData companion;
 
 	void Start() {
 		currComp = null;
@@ -17,10 +18,11 @@ public class CompanionController : MonoBehaviour {
 
 	void Update() {
 		changeAnimationState (currComp);
+        companion = this.model.getCompanion();
 
 		// Move 'isWalking' variable to model. 
-		if (view.isWalking) {
-			Debug.Log ("Current Companion: " + currComp.name);
+		if (companion.walkState) {
+			Debug.Log ("Current Companion: " + currComp.transform.parent.name);
 			AnimationState walking = anim [Animations.WALK];
 			if (walking.time < walking.length && walking.time != 0) {
 				Transform parentTransform = currComp.transform.parent;
@@ -29,7 +31,7 @@ public class CompanionController : MonoBehaviour {
 				parentTransform.Translate (Vector3.back * Time.deltaTime, Camera.main.transform);
 				currComp.transform.SetParent (parentTransform);
 			} else {
-				view.isWalking = false;
+				model.setWalk(false);
 			}
 		}
 	}
@@ -120,7 +122,7 @@ public class CompanionController : MonoBehaviour {
 			AnimationState walking = anim [Animations.WALK];
 			Transform parentTransform = currComp.transform.parent;
 
-			view.isWalking = true;
+			model.setWalk(true);
 			anim.Play (Animations.WALK);
 			walking.wrapMode = WrapMode.Once;
 			anim.CrossFadeQueued (Animations.IDLE_1);
