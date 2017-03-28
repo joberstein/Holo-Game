@@ -22,4 +22,17 @@ public class CompanionInteractible : Interactible {
 		ctrler.gazeExiter (gameObject, defaultMaterials);
 	}
 
+	public void Run() {
+		ctrler.Run ();
+	}
+
+	public void Attack() {
+		ctrler.Attack ();
+	}
+
+	public void Walk() {
+		ctrler.Walk ();
+	}
+
+
 }
