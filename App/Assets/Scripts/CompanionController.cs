@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class CompanionController : MonoBehaviour {
 	public CompanionModel model;
-	//private static Animations animations;
 	public CompanionView view;
 	private GameObject currComp;
 	private Animation anim;
     private CompanionData companion;
+	private HashSet<string> customCompanions;
 
 	void Start() {
 		currComp = null;
 		anim = null;
+		customCompanions = new HashSet<string> ();
+		customCompanions.Add ("aether");
+		customCompanions.Add ("purple");
 	}
 
 	void Update() {
@@ -80,7 +83,6 @@ public class CompanionController : MonoBehaviour {
 	}
 		
 	public void changeAnimationState(GameObject obj) {
-
 		if (Input.GetKeyDown ("b") && currComp != null) {
 			Animation anim = obj.GetComponentInParent<Animation> ();
 			ArrayList animations = new ArrayList();
@@ -92,7 +94,7 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Run() {
-		if (currComp != null && !currComp.tag.Equals("companion1")) {
+		if (!this.isCustomCompanion()) {
 			Animation anim = currComp.GetComponentInParent<Animation> ();
 			anim.Play(Animations.RUN);
 			anim[Animations.RUN].wrapMode = WrapMode.Once;
@@ -106,7 +108,7 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Attack() {
-		if (currComp != null && !currComp.tag.Equals("companion1")) {
+		if (!this.isCustomCompanion()) {
 			anim = currComp.GetComponentInParent<Animation> ();
 			Debug.Log (anim);
 			anim.Play(Animations.ATTACK_1);
@@ -118,7 +120,7 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Walk() {
-		if (currComp != null && !currComp.tag.Equals ("companion1")) {
+		if (!this.isCustomCompanion()) {
 			AnimationState walking = anim [Animations.WALK];
 			Transform parentTransform = currComp.transform.parent;
 
@@ -127,5 +129,9 @@ public class CompanionController : MonoBehaviour {
 			walking.wrapMode = WrapMode.Once;
 			anim.CrossFadeQueued (Animations.IDLE_1);
 		}
+	}
+
+	public bool isCustomCompanion() {
+		return currComp != null && customCompanions.Contains (currComp.tag);
 	}
 }
