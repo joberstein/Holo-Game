@@ -13,6 +13,9 @@ public class CompanionData
         this.name = name;
         this.description = description;
         this.classType = classType;
+		this.walkState = false;
+		this.isSelected = false;
+		this.humanityPoints = new Dictionary<string, int> ();
     }
 
     public int id { get; set; }
@@ -48,7 +51,7 @@ public class CompanionModel : MonoBehaviour {
 
     public CompanionData getCompanion()
     {
-        return this.companion;
+		return this.companion == null ? new CompanionData() : this.companion;
     }
 
 	public void setCanvas(string tag)
