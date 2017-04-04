@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: hound.ma
-//Last modified: Tue, Feb 28, 2017 04:30:10 PM
+//Last modified: Tue, Feb 28, 2017 04:37:21 PM
 //Codeset: UTF-8
 requires maya "2016";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
@@ -15,13 +15,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "F35F0365-E947-028B-2BCA-A78FFDE7FD10";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 5.7961895006243003 0.49889071843383892 -1.3885123201846696 ;
-	setAttr ".r" -type "double3" -8.1383527276267404 2613.3999999962239 -2.5444437451708134e-14 ;
+	setAttr ".t" -type "double3" 5.7634284619562335 3.4176347920544838 1.243997282676121 ;
+	setAttr ".r" -type "double3" -29.738352727590801 2582.5999999960191 -1.0366871474736894e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "14A5A047-0244-04A9-C1BB-C4A385DEAE1A";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 8.928698503257646;
+	setAttr ".coi" 11.254655822986781;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
