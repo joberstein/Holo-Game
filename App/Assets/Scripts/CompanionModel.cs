@@ -36,7 +36,7 @@ public class CompanionModel : MonoBehaviour {
     void Start ()
     {
         c1 = new CompanionData("Aether", "Hey im hungry", "FoodEater");
-        c2 = new CompanionData("Tiffany", "I am yo fashha", "Warrior");
+        c2 = new CompanionData("Purple", "I am yo fashha", "Tentacular");
         c3 = new CompanionData("Jesse", "I'm such a troll", "Rock");
         c4 = new CompanionData("Ari", "I will be pirate king", "Pirate Captain");
         c5 = new CompanionData("Muigai", "Old black lady", "Sandwitch");
@@ -54,19 +54,19 @@ public class CompanionModel : MonoBehaviour {
 	public void setCanvas(string tag)
     {	
 		switch(tag) {
-		case "companion1":
+		case "aether":
             companion = c1;
 			break;
-		case "troll1":
+		case "purple":
             companion = c2;
             break;
-		case "troll2":
+		case "troll1":
             companion = c3;
             break;
-		case "troll3":
+		case "troll2":
             companion = c4;
             break;
-		case "troll4":
+		case "troll3":
             companion = c5;
             break;
 		default:

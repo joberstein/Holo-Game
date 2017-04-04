@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - companion1
   - troll1
   - troll2
   - troll3
   - troll4
   - Tip
+  - aether
+  - purple
   layers:
   - Default
   - TransparentFX
