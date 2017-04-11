@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1168,6 +1168,7 @@ MonoBehaviour:
   model: {fileID: 0}
   view: {fileID: 0}
   controller: {fileID: 111073139}
+  scenes: []
 --- !u!4 &1040879951
 Transform:
   m_ObjectHideFlags: 0
@@ -1789,6 +1790,24 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 440278272}
           m_MethodName: Walk
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - Keyword: scene
+    KeyCode: 117
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1040879950}
+          m_MethodName: changeScenes
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

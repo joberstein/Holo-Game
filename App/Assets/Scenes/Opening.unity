@@ -514,6 +514,24 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+  - Keyword: scene
+    KeyCode: 117
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1769758572}
+          m_MethodName: changeScenes
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!1001 &1425829287
 Prefab:
   m_ObjectHideFlags: 0
@@ -945,6 +963,7 @@ MonoBehaviour:
   model: {fileID: 0}
   view: {fileID: 0}
   controller: {fileID: 0}
+  scenes: []
 --- !u!4 &1769758573
 Transform:
   m_ObjectHideFlags: 0

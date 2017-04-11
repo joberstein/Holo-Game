@@ -567,6 +567,7 @@ MonoBehaviour:
   model: {fileID: 0}
   view: {fileID: 0}
   controller: {fileID: 369700369}
+  scenes: []
 --- !u!4 &930695324 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ba76689f220e59a48845d4df03dcbffa, type: 2}
@@ -917,6 +918,24 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 362464762}
           m_MethodName: Walk
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  - Keyword: scene
+    KeyCode: 117
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 869511080}
+          m_MethodName: changeScenes
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
