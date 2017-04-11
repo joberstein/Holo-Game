@@ -115,7 +115,16 @@ public class CompanionController : MonoBehaviour {
 			anim[Animations.ATTACK_1].wrapMode = WrapMode.Once;
 			// Idle 1 
 			anim.CrossFadeQueued (Animations.IDLE_1);
-			//transform.position.x posx = currComp.GetComponentsInParent<Transform>();
+
+			// put in on collision enter.
+			bool hit = true;
+			if (hit) {
+				// Get companion from collision event.
+				GameObject collidedComp = currComp;
+				model.setCanvas (collidedComp.tag);
+				model.setHealth (companion.health - 2);
+				view.updateHealthBar (currComp);
+			}
 		}
 	}
 
