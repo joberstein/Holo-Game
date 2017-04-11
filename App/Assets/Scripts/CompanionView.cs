@@ -7,6 +7,7 @@ public class CompanionView : MonoBehaviour {
 	public CompanionModel model;
 	private Canvas canvas;
 	private Text[] texts;
+    private CompanionData companion;
 
 	// Use this for initialization
 	void Start () {
@@ -16,21 +17,22 @@ public class CompanionView : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
-	public void changeCompanionText() {
-		foreach (Text textObj in texts) {
+	public void changeCompanionText()
+    {
+        companion = this.model.getCompanion();
+        foreach (Text textObj in texts) {
 			switch(textObj.gameObject.name) 
 			{
 			case "Name":
-				textObj.text = "Name:\n" + this.model.getName();
+				textObj.text = "Name:\n" + companion.name;
 				break;
 			case "Description":
-				textObj.text = "Description:\n" + this.model.getDescription();
+				textObj.text = "Description:\n" + companion.description;
 				break;
 			case "Class":
-				textObj.text = "Class:\n" + this.model.getClassType();
+				textObj.text = "Class:\n" + companion.classType;
 				break;
 			default:
 				break;
@@ -53,4 +55,7 @@ public class CompanionView : MonoBehaviour {
 		}
 	}
 
+	public Material[] getCompanionMaterials(GameObject obj) {
+		return obj.GetComponent<Renderer>().materials;
+	}
 }

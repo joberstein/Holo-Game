@@ -7,23 +7,44 @@ public class CompanionController : MonoBehaviour {
 	public CompanionModel model;
 	public CompanionView view;
 	private GameObject currComp;
+	private Animation anim;
+    private CompanionData companion;
+	private HashSet<string> customCompanions;
 
 	void Start() {
 		currComp = null;
+		anim = null;
+		customCompanions = new HashSet<string> ();
+		customCompanions.Add ("aether");
+		customCompanions.Add ("purple");
 	}
 
 	void Update() {
 		changeAnimationState (currComp);
-		//Run ();
+        companion = this.model.getCompanion();
 
+		// Move 'isWalking' variable to model. 
+		if (companion.walkState) {
+			Debug.Log ("Current Companion: " + currComp.transform.parent.name);
+			AnimationState walking = anim [Animations.WALK];
+			if (walking.time < walking.length && walking.time != 0) {
+				Transform parentTransform = currComp.transform.parent;
+				// Space.World = walk in direction facing
+				// Camera.main.transform = walk towards camera
+				parentTransform.Translate (Vector3.back * Time.deltaTime, Camera.main.transform);
+				currComp.transform.SetParent (parentTransform);
+			} else {
+				model.setWalk(false);
+			}
+		}
 	}
 
-	public void gazeEnterer(GameObject obj, Material[] mat) {
+	public void gazeEntered(GameObject obj, Material[] mat) {
 		model.setCanvas (obj.tag);
 		//changeAnimationState (obj);
 		currComp = obj;
-		for (int i = 0; i < mat.Length; i++)
-		{
+		anim = currComp.GetComponentInParent<Animation> ();
+		for (int i = 0; i < mat.Length; i++) {
 			// 2.d: Uncomment the below line to highlight the material when gaze enters.
 			mat[i].SetFloat("_Highlight", .5f);
 			mat [i].color = Color.yellow;
@@ -31,9 +52,8 @@ public class CompanionController : MonoBehaviour {
 		}
 	}
 
-	public void gazeExiter(GameObject obj, Material[] mat) {
+	public void gazeExited(GameObject obj, Material[] mat) {
 		model.setCanvas (obj.tag);
-		currComp = null;
 		for (int i = 0; i < mat.Length; i++) {
 			// 2.d: Uncomment the below line to highlight the material when gaze enters.
 			mat [i].SetFloat ("_Highlight", 0f);
@@ -41,9 +61,28 @@ public class CompanionController : MonoBehaviour {
 			view.clearCompanionText ();
 		}
 	}
+
+	public void clicked(GameObject obj, Material[] mat) {
+		model.setCanvas (obj.tag);
+		currComp = null;
+		for (int i = 0; i < mat.Length; i++) {
+			mat [i].color = Color.red;
+		}
+	}
+
+	public void holdStarted(GameObject obj, Material[] mat) {
+		model.setCanvas (obj.tag);
+		currComp = null;
+		for (int i = 0; i < mat.Length; i++) {
+			mat [i].color = Color.green;
+		}
+	}
+
+	public void holdCompleted(GameObject obj, Material[] mat) {
+		gazeExited (obj, mat);
+	}
 		
 	public void changeAnimationState(GameObject obj) {
-
 		if (Input.GetKeyDown ("b") && currComp != null) {
 			Animation anim = obj.GetComponentInParent<Animation> ();
 			ArrayList animations = new ArrayList();
@@ -55,12 +94,12 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Run() {
-		if (currComp != null) {
+		if (!this.isCustomCompanion()) {
 			Animation anim = currComp.GetComponentInParent<Animation> ();
-			anim.Play("Run");
-			anim["Run"].wrapMode = WrapMode.Once;
+			anim.Play(Animations.RUN);
+			anim[Animations.RUN].wrapMode = WrapMode.Once;
 			// Idle 1 
-			anim.CrossFadeQueued ("Idle_01");
+			anim.CrossFadeQueued (Animations.IDLE_1);
 			//Transform t = currComp.GetComponentInParent<Transform>();
 			//Debug.Log (t.position);
 			//t.position = new Vector3 (t.position.x, t.position.y, t.position.z+=1.0f);
@@ -69,30 +108,30 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Attack() {
-		if (currComp != null) {
-			Animation anim = currComp.GetComponentInParent<Animation> ();
-			anim.Play("Attack");
-			anim["Attack"].wrapMode = WrapMode.Once;
+		if (!this.isCustomCompanion()) {
+			anim = currComp.GetComponentInParent<Animation> ();
+			Debug.Log (anim);
+			anim.Play(Animations.ATTACK_1);
+			anim[Animations.ATTACK_1].wrapMode = WrapMode.Once;
 			// Idle 1 
-			anim.CrossFadeQueued ("Idle_01");
+			anim.CrossFadeQueued (Animations.IDLE_1);
 			//transform.position.x posx = currComp.GetComponentsInParent<Transform>();
 		}
 	}
 
 	public void Walk() {
-		if (currComp != null) {
-			Animation anim = currComp.GetComponentInParent<Animation> ();
-			anim.Play("Walk");
-			anim["Walk"].wrapMode = WrapMode.Once;
-			// Idle 1 
-			anim.CrossFadeQueued ("Idle_01");
-			//transform.position.x posx = currComp.GetComponentsInParent<Transform>();
+		if (!this.isCustomCompanion()) {
+			AnimationState walking = anim [Animations.WALK];
+			Transform parentTransform = currComp.transform.parent;
+
+			model.setWalk(true);
+			anim.Play (Animations.WALK);
+			walking.wrapMode = WrapMode.Once;
+			anim.CrossFadeQueued (Animations.IDLE_1);
 		}
 	}
 
-	// Attack
-	// Walk
-	// Die
-	// Idle 1
-
+	public bool isCustomCompanion() {
+		return currComp != null && customCompanions.Contains (currComp.tag);
+	}
 }

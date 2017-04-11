@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: cb5ba1cb9ad04364c803df13dc0e9dbb
+timeCreated: 1487740767
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: face
+    100002: face_group
+    100004: faceCTRL
+    100006: l_arm1
+    100008: l_arm2
+    100010: l_arm3
+    100012: l_arm4
+    100014: l_cluster1CTRL
+    100016: l_cluster1Handle
+    100018: l_cluster2CTRL
+    100020: l_cluster2Handle
+    100022: l_cluster3CTRL
+    100024: l_cluster3Handle
+    100026: l_curve
+    100028: l_ikHandle
+    100030: l_shoulder
+    100032: l_shoulder_group
+    100034: l_shoulderCTRL
+    100036: model
+    100038: //RootNode
+    100040: r_arm1
+    100042: r_arm2
+    100044: r_arm3
+    100046: r_arm4
+    100048: r_cluster1CTRL
+    100050: r_cluster1Handle
+    100052: r_cluster2CTRL
+    100054: r_cluster2Handle
+    100056: r_cluster3CTRL
+    100058: r_cluster3Handle
+    100060: r_curve
+    100062: r_ikhandle
+    100064: r_shoulder
+    100066: r_shoulder_group
+    100068: r_shoulderCTRL
+    100070: root
+    400000: face
+    400002: face_group
+    400004: faceCTRL
+    400006: l_arm1
+    400008: l_arm2
+    400010: l_arm3
+    400012: l_arm4
+    400014: l_cluster1CTRL
+    400016: l_cluster1Handle
+    400018: l_cluster2CTRL
+    400020: l_cluster2Handle
+    400022: l_cluster3CTRL
+    400024: l_cluster3Handle
+    400026: l_curve
+    400028: l_ikHandle
+    400030: l_shoulder
+    400032: l_shoulder_group
+    400034: l_shoulderCTRL
+    400036: model
+    400038: //RootNode
+    400040: r_arm1
+    400042: r_arm2
+    400044: r_arm3
+    400046: r_arm4
+    400048: r_cluster1CTRL
+    400050: r_cluster1Handle
+    400052: r_cluster2CTRL
+    400054: r_cluster2Handle
+    400056: r_cluster3CTRL
+    400058: r_cluster3Handle
+    400060: r_curve
+    400062: r_ikhandle
+    400064: r_shoulder
+    400066: r_shoulder_group
+    400068: r_shoulderCTRL
+    400070: root
+    4300000: model
+    7400000: purple
+    9500000: //RootNode
+    13700000: model
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: model
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: purple
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: l_ikHandle
+        weight: 1
+      - path: model
+        weight: 1
+      - path: r_ikhandle
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/faceCTRL
+        weight: 1
+      - path: root/faceCTRL/face_group
+        weight: 1
+      - path: root/faceCTRL/face_group/face
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_arm1
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_arm1/l_arm2
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_arm1/l_arm2/l_arm3
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_arm1/l_arm2/l_arm3/l_arm4
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_cluster1CTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_cluster1CTRL/l_cluster1Handle
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_cluster2CTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_cluster2CTRL/l_cluster2Handle
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_cluster3CTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_cluster3CTRL/l_cluster3Handle
+        weight: 1
+      - path: root/faceCTRL/face_group/face/l_shoulderCTRL/l_shoulder_group/l_shoulder/l_curve
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_arm1
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_arm1/r_arm2
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_arm1/r_arm2/r_arm3
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_arm1/r_arm2/r_arm3/r_arm4
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_cluster1CTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_cluster1CTRL/r_cluster1Handle
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_cluster2CTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_cluster2CTRL/r_cluster2Handle
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_cluster3CTRL
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_cluster3CTRL/r_cluster3Handle
+        weight: 1
+      - path: root/faceCTRL/face_group/face/r_shoulderCTRL/r_shoulder_group/r_shoulder/r_curve
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
