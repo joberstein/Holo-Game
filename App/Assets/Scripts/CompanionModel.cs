@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CompanionData
 {
+	public static readonly int MAX_HEALTH = 200;
 
     public CompanionData () {
     }
@@ -13,12 +14,17 @@ public class CompanionData
         this.name = name;
         this.description = description;
         this.classType = classType;
+		this.health = MAX_HEALTH;
+		this.walkState = false;
+		this.isSelected = false;
+		this.humanityPoints = new Dictionary<string, int> ();
     }
 
     public int id { get; set; }
     public string name { get; set; }
     public string description { get; set; }
     public string classType { get; set; }
+	public int health { get; set; }
     public bool isSelected { get; set; }
     public Dictionary<string, int> humanityPoints { get; set; }
     public bool walkState { get; set; }
@@ -48,7 +54,7 @@ public class CompanionModel : MonoBehaviour {
 
     public CompanionData getCompanion()
     {
-        return this.companion;
+		return this.companion == null ? new CompanionData() : this.companion;
     }
 
 	public void setCanvas(string tag)
@@ -80,4 +86,10 @@ public class CompanionModel : MonoBehaviour {
         this.companion.walkState = state;
     }
 
+	public void setHealth(int pts) 
+	{
+		pts = Mathf.Min(CompanionData.MAX_HEALTH, pts);
+		pts = Mathf.Max(0, pts);
+		this.companion.health = pts;
+	}
 }
