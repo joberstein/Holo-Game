@@ -18,6 +18,5 @@ public class OpeningController : MonoBehaviour {
 
 	public void continueTalking() {
 		view.changeCaption ();
-		Debug.Log ("stuff");
 	}
 }
