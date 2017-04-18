@@ -110,25 +110,26 @@ public class CompanionController : MonoBehaviour {
 	public void Attack() {
 		if (!this.isCustomCompanion()) {
 			anim = currComp.GetComponentInParent<Animation> ();
-			Debug.Log (anim);
 			anim.Play(Animations.ATTACK_1);
 			anim[Animations.ATTACK_1].wrapMode = WrapMode.Once;
 			// Idle 1 
 			anim.CrossFadeQueued (Animations.IDLE_1);
 
-			// put in on collision enter.
-			bool hit = true;
-			if (hit) {
-				// Get companion from collision event.
-				GameObject collidedComp = currComp;
-				model.setCanvas (collidedComp.tag);
-				model.setHealth (companion.health - 2);
-				view.updateHealthBar (currComp);
-			}
+			
 		}
 	}
 
-	public void Walk() {
+    public void OnCollisionEnter(Collision collision)
+    {
+        // Get companion from collision event.
+        GameObject collidedComp = collision.gameObject;
+        Debug.Log("Collided");
+        model.setCanvas(collidedComp.tag);
+        model.setHealth(companion.health - 2);
+        view.updateHealthBar(collidedComp);
+    }
+
+    public void Walk() {
 		if (!this.isCustomCompanion()) {
 			AnimationState walking = anim [Animations.WALK];
 			Transform parentTransform = currComp.transform.parent;
