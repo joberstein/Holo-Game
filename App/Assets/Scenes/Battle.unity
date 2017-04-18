@@ -1512,6 +1512,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38361454, y: 0.40070197, z: 0.13280493}
   m_Center: {x: -0.015727364, y: 0.17427084, z: 0.16929792}
+--- !u!114 &1397104558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1397104554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68540a447c7985f40a0a147e783aa7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 0}
+  view: {fileID: 0}
 --- !u!1 &1400578274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,6 +2469,7 @@ GameObject:
   - component: {fileID: 2039869402}
   - component: {fileID: 2039869404}
   - component: {fileID: 2039869403}
+  - component: {fileID: 2039869405}
   m_Layer: 0
   m_Name: AetherCompanion
   m_TagString: Untagged
@@ -2522,6 +2536,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2039869405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2039869400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68540a447c7985f40a0a147e783aa7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 1110028801}
+  view: {fileID: 1896491406}
 --- !u!224 &2053638993 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224004427906112416, guid: 8af8a5203ecea0b41ace95403081ba59,
