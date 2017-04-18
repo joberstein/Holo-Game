@@ -44,7 +44,7 @@ namespace HoloToolkit.Unity
         {
             get
             {
-#if UNITY_METRO && !UNITY_EDITOR
+#if UNITY_METRO && UNITY_EDITOR
                 return true;
 #else
                 return false;
@@ -126,6 +126,7 @@ namespace HoloToolkit.Unity
         private void Start()
         {
             // Initialize the DLL
+			Debug.Log(AllowSpatialUnderstanding);
             if (AllowSpatialUnderstanding)
             {
                 SpatialUnderstandingDll.Imports.SpatialUnderstanding_Init();
