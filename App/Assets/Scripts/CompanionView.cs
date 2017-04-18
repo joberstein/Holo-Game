@@ -60,7 +60,9 @@ public class CompanionView : MonoBehaviour {
 	}
 
 	public void updateHealthBar(GameObject attackedCompanion) {
-		Transform hp = attackedCompanion.transform.parent.FindChild ("HP");
+        Debug.Log(attackedCompanion);
+        Debug.Log(attackedCompanion.transform);
+		Transform hp = attackedCompanion.transform.FindChild ("HP");
 		Transform bar = hp.FindChild ("Bar");
 		Transform health = bar.FindChild ("BarOuter");
 		Vector3 localScale = health.transform.localScale;
