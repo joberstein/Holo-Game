@@ -137,6 +137,10 @@ public class CompanionController : MonoBehaviour {
 	public void Attack() {
         if (this.isCompanion(selectComp))
         {
+            Rigidbody rbSelected = selectComp.transform.parent.GetComponent<Rigidbody>();
+            Rigidbody rbPlayer = GameObject.Find("Player").transform.parent.parent.GetComponent<Rigidbody>();
+            rbSelected.isKinematic = false;
+            rbPlayer.isKinematic = false;
             anim.Play(Animations.WALK);
             anim[Animations.WALK].wrapMode = WrapMode.Loop;
             Debug.Log(GameObject.Find("Player").transform.parent.gameObject.tag);
