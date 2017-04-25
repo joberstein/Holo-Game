@@ -7,6 +7,7 @@ public class DetectCollision : MonoBehaviour {
     public CompanionModel model;
     public CompanionView view;
     private Animation anim;
+    private float startAttackTime;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -18,6 +19,7 @@ public class DetectCollision : MonoBehaviour {
             //Debug.Log("Collided");
             //Debug.Log(collidedComp);
             model.setWalk(false);
+            startAttackTime = Time.time;
         }
     }
 
@@ -42,11 +44,14 @@ public class DetectCollision : MonoBehaviour {
             //Debug.Log(attack.length);
             //if (attack.time == attack.length)
             //{
+
+            if (Time.time > (startAttackTime + attack.length)) {
                 model.setCanvas(child.tag);
                 int collidedData = model.getCompanion().health;
                 model.setHealth(collidedData - 2);
                 view.updateHealthBar(collidedComp);
-            //}
+                startAttackTime = Time.time;
+            }
         }
     }
 }

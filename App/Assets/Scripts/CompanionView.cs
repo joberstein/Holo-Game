@@ -78,7 +78,8 @@ public class CompanionView : MonoBehaviour {
 			pointsToFloat = 10 * (localScale.x - dmg);
 			hpPoints.text = pointsToFloat.ToString ();
 		} else {
-			// die
+            // die
+            Destroy(attackedCompanion);
 		}
 	}
 }

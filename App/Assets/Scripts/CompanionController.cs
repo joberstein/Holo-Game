@@ -45,7 +45,14 @@ public class CompanionController : MonoBehaviour {
                 //parentTransform.Translate(Vector3.back * Time.deltaTime, selectComp.transform);
                 // Debug.Log(parentTransform.position);
                 // Debug.Log(selectComp.transform.position);
-                parentTransform.position = Vector3.MoveTowards(parentTransform.position, selectComp.transform.position, 1*Time.deltaTime);
+                if (selectComp)
+                {
+                    parentTransform.position = Vector3.MoveTowards(parentTransform.position, selectComp.transform.position, Time.deltaTime);
+                } else
+                {
+                    parentTransform.Translate(Vector3.back * Time.deltaTime, Camera.main.transform);
+                }
+                
                 //parentTransform.rotation = Quaternion.LookRotation(parentTransform.position);
                 parentTransform.forward = parentTransform.position;
                 // currComp.transform.SetParent (parentTransform);
