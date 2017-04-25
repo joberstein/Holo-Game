@@ -60,14 +60,14 @@ public class CompanionView : MonoBehaviour {
 	}
 
 	public void updateHealthBar(GameObject attackedCompanion) {
-        Debug.Log(attackedCompanion);
-        Debug.Log(attackedCompanion.transform);
+        //Debug.Log(attackedCompanion);
+        //Debug.Log(attackedCompanion.transform);
 		Transform hp = attackedCompanion.transform.FindChild ("HP");
 		Transform bar = hp.FindChild ("Bar");
 		Transform health = bar.FindChild ("BarOuter");
 		Vector3 localScale = health.transform.localScale;
 		float dmg = .5f;
-		Debug.Log (localScale.x);
+		//Debug.Log (localScale.x);
 
 		// constant amount of damage.
 		if (localScale.x >= dmg) {

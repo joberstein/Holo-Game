@@ -54,6 +54,11 @@ public class CompanionClicked : MonoBehaviour, IInputClickHandler, IHoldHandler,
 	}
 
 	private Material[] getMaterials() {
-		return controller.view.getCompanionMaterials (gameObject);
+        return controller.getMaterials(gameObject);
 	}
+
+    public void Select()
+    {
+        controller.Select(gameObject);   
+    }
 }
