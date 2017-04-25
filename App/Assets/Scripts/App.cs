@@ -45,6 +45,5 @@ public class App : MonoBehaviour {
             currentScene++;
         }
         SceneManager.LoadScene(scenes[currentScene]);
-        Debug.Log(currentScene);
     }
 }

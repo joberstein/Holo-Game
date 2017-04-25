@@ -64,7 +64,6 @@ namespace HoloToolkit.Unity.SpatialMapping
         {
             if (autoStartObserver)
             {
-				Debug.Log ("Starting observer.");
                 StartObserver();
             }
         }
@@ -188,7 +187,6 @@ namespace HoloToolkit.Unity.SpatialMapping
         public void StartObserver()
         {
 #if UNITY_EDITOR
-			Debug.Log("VR: " + !UnityEngine.VR.VRDevice.isPresent);
             // Allow observering if a device is present (Holographic Remoting)
             if (!UnityEngine.VR.VRDevice.isPresent) return;
 #endif

@@ -126,7 +126,6 @@ namespace HoloToolkit.Unity
         private void Start()
         {
             // Initialize the DLL
-			Debug.Log(AllowSpatialUnderstanding);
             if (AllowSpatialUnderstanding)
             {
                 SpatialUnderstandingDll.Imports.SpatialUnderstanding_Init();

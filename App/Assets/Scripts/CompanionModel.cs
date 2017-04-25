@@ -41,11 +41,11 @@ public class CompanionModel : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        c1 = new CompanionData("Aether", "Hey im hungry", "FoodEater");
-        c2 = new CompanionData("Purple", "I am yo fashha", "Tentacular");
-        c3 = new CompanionData("Jesse", "I'm such a troll", "Rock");
-        c4 = new CompanionData("Ari", "I will be pirate king", "Pirate Captain");
-        c5 = new CompanionData("Muigai", "Old black lady", "Sandwitch");
+        c1 = new CompanionData("Aether", "Lurks in the shadows waiting for the right time to strike an opponent.", "Assassain");
+        c2 = new CompanionData("Purple", "It's magic tentacles can instantly cure any injuries and replenish stamina.", "Healer");
+        c3 = new CompanionData("Igor", "Conjures enchantments and hexes to support allies and deter enemies.", "Sorcerer");
+        c4 = new CompanionData("Sora", "Utilizes the power of the sun and light to vanquish foes.", "Paladin");
+        c5 = new CompanionData("Arnold", "Wields strong weaponary and fights with the strength of 1000 soliders.", "Warrior");
     }
 	
 	// Update is called once per frame

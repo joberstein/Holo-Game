@@ -61,22 +61,23 @@ public class CompanionView : MonoBehaviour {
 
 	public void updateHealthBar(GameObject attackedCompanion) {
 		Transform hp = attackedCompanion.transform.parent.FindChild ("HP");
-		Transform bar = hp.FindChild ("Bar");
-		Transform health = bar.FindChild ("BarOuter");
-		Vector3 localScale = health.transform.localScale;
-		float dmg = .5f;
-		Debug.Log (localScale.x);
+		if (hp) {
+			Transform bar = hp.FindChild ("Bar");
+			Transform health = bar.FindChild ("BarOuter");
+			Vector3 localScale = health.transform.localScale;
+			float dmg = .5f;
 
-		// constant amount of damage.
-		if (localScale.x >= dmg) {
-			health.transform.localScale = new Vector3 (localScale.x - dmg, localScale.y, localScale.z);
-			TextMesh hpPoints = hp.GetComponentInChildren<TextMesh> ();
-			float pointsToFloat = float.Parse (hpPoints.text);
-			//pointsToFloat -= CompanionData.MAX_HEALTH * dmg / 20.0f;
-			pointsToFloat = 10 * (localScale.x - dmg);
-			hpPoints.text = pointsToFloat.ToString ();
-		} else {
-			// die
+			// constant amount of damage.
+			if (localScale.x >= dmg) {
+				health.transform.localScale = new Vector3 (localScale.x - dmg, localScale.y, localScale.z);
+				TextMesh hpPoints = hp.GetComponentInChildren<TextMesh> ();
+				float pointsToFloat = float.Parse (hpPoints.text);
+				//pointsToFloat -= CompanionData.MAX_HEALTH * dmg / 20.0f;
+				pointsToFloat = 10 * (localScale.x - dmg);
+				hpPoints.text = pointsToFloat.ToString ();
+			} else {
+				// die
+			}
 		}
 	}
 }

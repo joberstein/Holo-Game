@@ -25,7 +25,7 @@ public class CompanionController : MonoBehaviour {
 
 		// Move 'isWalking' variable to model. 
 		if (companion.walkState) {
-			Debug.Log ("Current Companion: " + currComp.transform.parent.name);
+			//Debug.Log ("Current Companion: " + currComp.transform.parent.name);
 			AnimationState walking = anim [Animations.WALK];
 			if (walking.time < walking.length && walking.time != 0) {
 				Transform parentTransform = currComp.transform.parent;
@@ -88,13 +88,12 @@ public class CompanionController : MonoBehaviour {
 			ArrayList animations = new ArrayList();
 			foreach (AnimationState state in anim) {
 				animations.Add (state);
-				Debug.Log(state.name);
 			}
 		}
 	}
 
 	public void Run() {
-		if (!this.isCustomCompanion()) {
+		if (this.companionExists() && !this.isCustomCompanion()) {
 			Animation anim = currComp.GetComponentInParent<Animation> ();
 			anim.Play(Animations.RUN);
 			anim[Animations.RUN].wrapMode = WrapMode.Once;
@@ -108,29 +107,21 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public void Attack() {
-		if (!this.isCustomCompanion()) {
+		if (this.companionExists() && !this.isCustomCompanion()) {
 			anim = currComp.GetComponentInParent<Animation> ();
 			anim.Play(Animations.ATTACK_1);
 			anim[Animations.ATTACK_1].wrapMode = WrapMode.Once;
 			// Idle 1 
 			anim.CrossFadeQueued (Animations.IDLE_1);
 
-			
+			model.setCanvas ("aether");
+			model.setHealth(companion.health - 2);
+			view.updateHealthBar(GameObject.Find("aether"));
 		}
 	}
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        // Get companion from collision event.
-        GameObject collidedComp = collision.gameObject;
-        Debug.Log("Collided");
-        model.setCanvas(collidedComp.tag);
-        model.setHealth(companion.health - 2);
-        view.updateHealthBar(collidedComp);
-    }
-
     public void Walk() {
-		if (!this.isCustomCompanion()) {
+		if (this.companionExists() && !this.isCustomCompanion()) {
 			AnimationState walking = anim [Animations.WALK];
 			Transform parentTransform = currComp.transform.parent;
 
@@ -142,6 +133,10 @@ public class CompanionController : MonoBehaviour {
 	}
 
 	public bool isCustomCompanion() {
-		return currComp != null && customCompanions.Contains (currComp.tag);
+		return customCompanions.Contains (currComp.tag);
+	}
+
+	public bool companionExists() {
+		return currComp != null;
 	}
 }
